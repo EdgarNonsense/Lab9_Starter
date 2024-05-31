@@ -99,6 +99,59 @@
     });
 
     let errorBtns = Array.from(document.querySelectorAll('#error-btns > button'));
+    
+    for(let i = 0; i < errorBtns.length; i++){
+      errorBtns[i].addEventListener('click', x => {
+        let innerText = x.target.innerText;
+        switch(innerText){
+          case 'Console Log':
+            console.log('Console Log Demo');
+            break;
+          case 'Console Error':
+            console.error('Console Error Demo');
+            break;
+          case 'Console Count':
+            console.count('Console Count: ');
+            break;
+          case 'Console Warn':
+            console.warn('Console Warn Demo');
+            break;
+          case 'Console Assert':
+            console.assert(false);
+            console.assert(true);
+            break;
+          case 'Console Clear':
+            console.clear();
+            break;
+          case 'Console Dir':
+            console.dir(errorBtns[i]);
+            break;
+          case 'Console dirxml':
+            console.dirxml(errorBtns[i]);
+            break;
+          case 'Console Group Start':
+            console.group('console.group');
+            break;
+          case 'Console Group End':
+            console.groupEnd();
+            break;
+          case 'Console Table': 
+            console.table({class:'CSE 110', professor: 'Powell', time: '5pm'});
+            console.table(['javascript', 'html', 'css']);
+            break;
+          case 'Start Timer': 
+            console.time('Console Timer Demo');
+            break;
+          case 'End Timer':
+            console.timeEnd('Console Timer Demo');
+            break;
+          case 'Console Trace':
+            console.trace('console.trace');
+            break;
+        }
+      })
+    }
+
 
     // Start your code here
     // You may move this JS to another file if you wish
