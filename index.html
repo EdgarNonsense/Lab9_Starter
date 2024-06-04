@@ -87,6 +87,14 @@
     </section>
   </main>
 
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+      token: "93a02a9d17a6441e8f909ef7da628606"
+      // for more configuration options, see https://docs.trackjs.com
+    });
+  </script>
+
   <script>
     class CalculationError extends Error {
       constructor(message) {
@@ -162,10 +170,15 @@
           case 'Console Trace':
             console.trace('console.trace');
             break;
+          case 'Trigger a Global Error':
+            let x = 1n / 0n;
         }
       })
     }
 
+    window.onerror = (error) => {
+      console.log('Error occurred:', error);
+    };
 
     // Start your code here
     // You may move this JS to another file if you wish
